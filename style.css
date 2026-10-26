@@ -1,0 +1,309 @@
+:root{
+  --tlo:#fbfaf6;
+  --szalwia:#eef2ec;
+  --szalwia-2:#e3eae1;
+  --ink:#1f2a24;
+  --szary:#55615a;
+  --linia:#d8e0d9;
+  --zielen:#245738;
+  --zielen-d:#1a3e28;
+  --las:#153321;
+  --limonka:#9fc63b;
+  --hh:64px;
+  --r:4px;
+  --serif:Cinzel,"Times New Roman",serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hh) + 8px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--tlo);color:var(--ink);font:400 17px/1.65 Lato,Arial,sans-serif;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.18;margin:0;color:var(--zielen-d)}
+h2{font-size:clamp(28px,3.1vw,42px)}
+h3{font-size:22px}
+p{margin:0 0 1em}
+figure{margin:0}
+.wrap{width:min(1240px,100% - 40px);margin-inline:auto}
+@media (min-width:1025px){:root{--hh:80px}}
+
+/* ---------- naglowek ---------- */
+.top{position:sticky;top:0;z-index:50;background:rgba(251,250,246,.97);border-bottom:1px solid var(--linia);backdrop-filter:saturate(1.2) blur(6px)}
+.top-in{height:var(--hh);display:flex;align-items:center;gap:18px}
+.logo{display:block;flex:none;margin-right:auto}
+.logo img{height:44px;width:auto}
+.menu{display:none;gap:2px}
+.menu a{text-decoration:none;color:#33413a;font-size:15.5px;padding:8px 10px;white-space:nowrap;transition:color .2s}
+.menu a:hover{color:var(--zielen)}
+.tel{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--zielen-d);font-weight:700;white-space:nowrap;padding:10px 4px}
+.tel svg{width:21px;height:21px;fill:var(--zielen)}
+.tel span{display:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 28px;border-radius:var(--r);font:700 15.5px/1 Lato,Arial,sans-serif;letter-spacing:.02em;text-decoration:none;border:0;cursor:pointer;transition:background .2s,color .2s}
+.btn-g{background:var(--zielen);color:#fff}
+.btn-g:hover{background:var(--las)}
+.btn-rez{display:none;min-height:42px;padding:0 22px;background:var(--zielen);color:#fff}
+.btn-rez:hover{background:var(--las)}
+.btn-jasny{background:#fff;color:var(--zielen-d)}
+.btn-jasny:hover{background:var(--szalwia)}
+.ham{width:44px;height:44px;margin-right:-8px;background:none;border:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:7px;cursor:pointer}
+.ham span{display:block;width:24px;height:2px;background:var(--zielen-d);transition:transform .25s}
+.ham[aria-expanded="true"] span:first-child{transform:translateY(4.5px) rotate(45deg)}
+.ham[aria-expanded="true"] span:last-child{transform:translateY(-4.5px) rotate(-45deg)}
+.panel{position:absolute;left:0;right:0;top:100%;background:var(--tlo);border-bottom:1px solid var(--linia);padding:4px 20px 24px;max-height:calc(100svh - var(--hh));overflow:auto;box-shadow:0 12px 24px rgba(20,40,28,.08)}
+.panel nav{display:flex;flex-direction:column}
+.panel nav a{color:var(--ink);text-decoration:none;font-size:18px;padding:13px 0;border-bottom:1px solid var(--linia)}
+.panel-dol{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:20px;font-size:15px;line-height:1.55}
+.panel-dol p{margin:0;text-align:right}
+.panel-dol p a{color:var(--zielen-d);text-decoration:none}
+@media (min-width:1025px){
+  .menu,.btn-rez{display:flex}
+  .ham,.panel{display:none!important}
+  .logo img{height:56px}
+  .top-in{gap:10px}
+}
+@media (min-width:1360px){.tel span{display:inline}.top-in{gap:18px}.menu a{padding:8px 12px}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--szalwia)}
+.hero-in{padding:20px 20px 24px}
+.hero-adres{font-size:15px;color:var(--szary);margin:0 0 8px}
+.hero h1{font-size:clamp(25px,3.7svh,34px);line-height:1.16;margin-bottom:12px}
+.lead{font-size:clamp(15.5px,2.25svh,18px);line-height:1.55;color:#2f3b34;margin-bottom:20px}
+.hero-cta{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.link{color:var(--zielen);font-weight:700;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+.link:hover{color:var(--las)}
+@media (max-width:760px){
+  .hero{display:flex;flex-direction:column;min-height:calc(100svh - var(--hh))}
+  .hero-foto{position:relative;flex:1 1 0;min-height:min(60vw,28svh);max-height:58svh;align-self:stretch;width:100%;overflow:hidden}
+  .hero-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 55%}
+  .hero-foto::after{content:"";position:absolute;left:0;right:0;bottom:0;height:30px;background:linear-gradient(rgba(238,242,236,0),var(--szalwia))}
+  .hero-in{flex:0 0 auto}
+}
+@media (max-width:760px) and (max-height:680px){
+  .hero-in{padding:12px 20px 18px}
+  .hero-adres{margin-bottom:4px;font-size:14px}
+  .hero h1{font-size:24px;margin-bottom:8px}
+  .lead{font-size:15px;line-height:1.5;margin-bottom:14px}
+  .btn{min-height:46px}
+}
+@media (min-width:761px){
+  .hero{display:flex;align-items:flex-end;min-height:calc(100svh - var(--hh));max-height:980px;overflow:hidden;background:var(--las)}
+  .hero-foto{position:absolute;inset:0}
+  .hero-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+  .hero-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,40,26,.86) 0%,rgba(16,40,26,.62) 38%,rgba(16,40,26,.08) 72%),linear-gradient(0deg,rgba(16,40,26,.45),rgba(16,40,26,0) 45%)}
+  .hero-in{position:relative;width:min(1240px,100% - 56px);margin-inline:auto;padding:0 0 clamp(56px,9vh,110px)}
+  .hero-in>*{max-width:620px}
+  .hero-adres{color:#d9e6d6;font-size:16px;margin-bottom:16px}
+  .hero h1{color:#fff;font-size:clamp(38px,4vw,58px);margin-bottom:20px}
+  .lead{color:#eef3ec;font-size:clamp(17px,1.3vw,20px);margin-bottom:32px}
+  .hero .btn-g{background:#fff;color:var(--zielen-d)}
+  .hero .btn-g:hover{background:var(--szalwia)}
+  .hero .link{color:#fff}
+}
+@media (min-width:761px) and (max-height:820px){
+  .hero h1{font-size:clamp(34px,3.5vw,48px);margin-bottom:14px}
+  .lead{margin-bottom:24px}
+  .hero-in{padding-bottom:56px}
+}
+
+/* ---------- sekcje ---------- */
+.sek{padding:72px 0}
+@media (min-width:1025px){.sek{padding:110px 0}}
+.sek-glowa{max-width:780px;margin-bottom:36px}
+.sek-glowa h2{margin-bottom:16px}
+.sek-glowa p{color:var(--szary);font-size:18px;margin:0}
+
+/* pokoje */
+.pokoje{background:var(--tlo)}
+.kafle{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+@media (min-width:560px){.kafle{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1025px){.kafle{grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}}
+.kafel{display:flex;flex-direction:column;text-decoration:none;background:#fff;border-radius:var(--r);overflow:hidden;min-width:0;box-shadow:0 1px 3px rgba(20,40,28,.08);transition:box-shadow .25s}
+.kafel img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .6s}
+.kafel:hover{box-shadow:0 12px 30px rgba(20,40,28,.13)}
+.kafel:hover img{transform:scale(1.03)}
+.kafel-txt{display:flex;flex-direction:column;gap:3px;padding:16px 18px 18px}
+.kafel-txt b{font-family:var(--serif);font-weight:500;font-size:18px;line-height:1.25;color:var(--zielen-d)}
+.kafel-txt small{font-size:14.5px;color:var(--szary)}
+.kafel-txt em{font-style:normal;font-weight:700;color:var(--ink);margin-top:6px}
+.kafel-eko{background:var(--zielen);box-shadow:none;justify-content:center}
+.kafel-eko .kafel-txt{padding:26px 24px}
+.kafel-eko b{color:#fff;font-size:21px;margin-bottom:6px}
+.kafel-eko small{color:#dfe9dc;font-size:15.5px;line-height:1.55}
+
+.cennik{margin-top:34px;border-top:1px solid var(--linia);border-bottom:1px solid var(--linia)}
+.cennik summary{cursor:pointer;list-style:none;padding:20px 0;font-weight:700;color:var(--zielen-d);display:flex;justify-content:space-between;align-items:center;gap:16px}
+.cennik summary::-webkit-details-marker{display:none}
+.cennik summary::after{content:"";width:10px;height:10px;border-right:2px solid var(--zielen);border-bottom:2px solid var(--zielen);transform:rotate(45deg) translateY(-3px);transition:transform .2s;flex:none}
+.cennik[open] summary::after{transform:rotate(-135deg)}
+.cennik-in{display:grid;gap:30px;padding:4px 0 30px}
+@media (min-width:1025px){.cennik-in{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:56px}}
+.tabela{overflow-x:auto;min-width:0}
+table{width:100%;border-collapse:collapse;font-size:15.5px;min-width:470px}
+th,td{text-align:left;padding:10px 10px 10px 0;border-bottom:1px solid var(--linia);white-space:nowrap}
+thead th{font-size:13.5px;color:var(--szary);font-weight:700}
+tbody th{font-weight:400}
+td{font-variant-numeric:tabular-nums}
+.tabela-pod{font-size:14px;color:var(--szary);margin:10px 0 0}
+.dodatki{list-style:none;margin:0;padding:0;font-size:15.5px}
+.dodatki li{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--linia)}
+.dodatki b{white-space:nowrap}
+
+/* rezerwuj */
+.rezerwuj{position:relative;overflow:hidden;background:var(--las);color:#fff}
+.rez-tlo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.rezerwuj::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,40,26,.9),rgba(16,40,26,.72) 55%,rgba(16,40,26,.35));z-index:1}
+.rez-in{position:relative;z-index:2}
+.rez-in>*{max-width:600px}
+.rezerwuj h2{color:#fff;margin-bottom:14px}
+.rezerwuj p{color:#e3ece0;font-size:18px}
+.korzysci{margin:0 0 30px;padding:0;list-style:none;display:grid;gap:8px;font-size:17px}
+.korzysci li{padding-left:28px;position:relative}
+.korzysci li::before{content:"";position:absolute;left:2px;top:.45em;width:12px;height:7px;border-left:2px solid var(--limonka);border-bottom:2px solid var(--limonka);transform:rotate(-45deg)}
+.rez-cta{display:flex;flex-wrap:wrap;align-items:center;gap:16px 26px}
+.link-jasny{color:#fff}
+.link-jasny:hover{color:var(--limonka)}
+
+/* o hotelu */
+.o-hotelu{background:var(--szalwia)}
+.o-in{display:grid;gap:36px;align-items:center}
+.o-txt h2{margin-bottom:20px}
+.o-txt p{color:#36443c}
+.mozaika{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.mozaika figure{position:relative;overflow:hidden;border-radius:var(--r);min-width:0}
+.mozaika img{width:100%;height:100%;object-fit:cover;aspect-ratio:1}
+.mozaika .m-a{grid-column:1/-1}
+.mozaika .m-a img{aspect-ratio:16/10}
+.mozaika figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 10px 8px;font-size:13.5px;line-height:1.3;color:#fff;background:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.6))}
+@media (min-width:1025px){
+  .o-in{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:72px}
+  .mozaika{gap:16px}
+  .mozaika figcaption{font-size:15px;padding:30px 14px 12px}
+}
+
+/* restauracja */
+.restauracja{background:var(--tlo)}
+.res-in{display:grid;gap:34px;align-items:center;margin-bottom:34px}
+.res-foto{border-radius:var(--r);overflow:hidden}
+.res-foto img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.res-txt h2{margin-bottom:20px}
+.res-txt>p{color:#36443c}
+.godziny{margin:24px 0 6px;max-width:420px}
+.godziny div{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--linia)}
+.godziny div:first-child{border-top:1px solid var(--linia)}
+.godziny dd{margin:0;font-weight:700;font-variant-numeric:tabular-nums}
+.male{font-size:14.5px;color:var(--szary)}
+.chipy{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 22px}
+.chip{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border:1px solid #b9c8bd;border-radius:999px;font-size:15px;text-decoration:none;color:var(--zielen-d);background:#fff;transition:border-color .2s,background .2s}
+a.chip:hover{border-color:var(--zielen);background:var(--szalwia)}
+.chip-txt{background:transparent;min-height:34px;font-size:14.5px}
+.dania{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.dania figure{border-radius:var(--r);overflow:hidden;min-width:0}
+.dania img{width:100%;aspect-ratio:1;object-fit:cover}
+@media (min-width:900px){.dania{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}}
+@media (min-width:1025px){.res-in{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:72px;margin-bottom:56px}}
+
+/* wesela */
+.wesela{background:var(--szalwia-2)}
+.wes-in{display:grid;gap:34px;align-items:center;margin-bottom:34px}
+.wes-txt h2{margin-bottom:20px}
+.wes-txt>p{color:#36443c}
+.fakty{list-style:none;margin:22px 0 0;padding:0}
+.fakty li{padding:12px 0;border-top:1px solid #c8d4ca;color:#36443c}
+.fakty li:last-child{border-bottom:1px solid #c8d4ca}
+.fakty b{color:var(--zielen-d)}
+.wes-cta{display:flex;flex-wrap:wrap;align-items:center;gap:16px 26px}
+.wes-foto{border-radius:var(--r);overflow:hidden}
+.wes-foto img{width:100%;aspect-ratio:4/5;object-fit:cover;max-height:720px}
+@media (max-width:1024px){.wes-foto{order:-1}.wes-foto img{aspect-ratio:4/3;object-position:50% 40%}}
+@media (min-width:1025px){.wes-in{grid-template-columns:minmax(0,1fr) minmax(0,.85fr);gap:72px;margin-bottom:56px}}
+
+/* konferencje */
+.konferencje{background:var(--tlo)}
+.sale{display:grid;gap:20px}
+@media (min-width:800px){.sale{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}}
+.sala{background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:0 1px 3px rgba(20,40,28,.08)}
+.sala img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.sala-txt{padding:20px 22px 22px}
+.sala-txt h3{margin-bottom:8px}
+.sala-txt p{margin:0;color:var(--szary);font-size:16px}
+.kon-cta{margin-top:30px}
+
+/* okolica */
+.okolica{background:var(--szalwia)}
+.miejsca{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.miejsca figure{position:relative;border-radius:var(--r);overflow:hidden;min-width:0}
+.miejsca img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.miejsca figure:first-child{grid-column:1/-1}
+.miejsca figure:first-child img{aspect-ratio:16/10}
+.miejsca figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 14px 12px;color:#fff;display:flex;flex-direction:column;line-height:1.3;background:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.62))}
+.miejsca figcaption b{font-size:16px}
+.miejsca figcaption span{font-size:14px;color:#e6eee3}
+@media (min-width:900px){
+  .miejsca{grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+  .miejsca figure:first-child{grid-column:auto}
+  .miejsca figure:first-child img{aspect-ratio:4/5}
+  .miejsca figcaption{padding:44px 16px 14px}
+  .miejsca figcaption b{font-size:17px}
+}
+
+/* opinie */
+.opinie{background:var(--tlo)}
+.cytaty{display:grid;gap:0}
+.cytat{padding:26px 0;border-top:1px solid var(--linia)}
+.cytat:last-child{border-bottom:1px solid var(--linia)}
+.cytat blockquote{margin:0 0 14px;font-size:18px;line-height:1.6;color:#2f3b34}
+.cytat figcaption{font-weight:700;color:var(--zielen-d);display:flex;gap:12px;align-items:baseline}
+.cytat figcaption span{font-weight:400;color:var(--szary);font-size:15px}
+@media (min-width:900px){
+  .cytaty{grid-template-columns:repeat(3,minmax(0,1fr));gap:48px}
+  .cytat,.cytat:last-child{border-bottom:0;padding-bottom:0}
+}
+
+/* kontakt */
+.kontakt{background:var(--szalwia)}
+.kont-in{display:grid;gap:40px}
+.kont-dane h2{margin-bottom:22px}
+address{font-style:normal;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 24px}
+address a{color:var(--zielen-d);text-decoration:none;font-weight:700}
+address a:hover{text-decoration:underline}
+.mapa{border-radius:var(--r);overflow:hidden;background:var(--szalwia-2);aspect-ratio:16/10}
+.mapa iframe{display:block;width:100%;height:100%;border:0}
+.form{background:#fff;border-radius:var(--r);padding:26px 20px;box-shadow:0 1px 3px rgba(20,40,28,.08);align-self:start;min-width:0}
+.form h3{margin-bottom:8px;font-size:24px}
+.form-wst{font-size:15.5px;color:var(--szary)}
+.form-wst a{color:var(--zielen);font-weight:700}
+.pole{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;min-width:0}
+.pole-2{display:grid;grid-template-columns:minmax(0,1fr);gap:0 14px}
+@media (min-width:480px){.pole-2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+label{font-size:14.5px;font-weight:700;color:#36443c}
+input,select,textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--tlo);border:1px solid #c3cfc6;border-radius:var(--r);padding:12px 13px;width:100%;min-width:0}
+textarea{resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--limonka);outline-offset:1px;border-color:var(--zielen)}
+.pole.blad input,.pole.blad textarea{border-color:#b3261e}
+.form .btn{width:100%;margin-top:4px}
+.form-info{margin:12px 0 0;font-size:15px;color:var(--zielen-d);min-height:1.4em}
+@media (min-width:1025px){
+  .kont-in{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:64px}
+  .form{padding:34px 34px}
+}
+
+/* stopka */
+.stopka{background:var(--las);color:#c9d6cb;padding:44px 0 110px;font-size:15px}
+.stopka-in{display:grid;gap:18px}
+.stopka img{width:150px;height:auto}
+.stopka p{margin:0}
+.stopka-uw{color:#93a898;font-size:13.5px}
+@media (min-width:1025px){.stopka{padding-bottom:48px}.stopka-in{grid-template-columns:auto 1fr auto;align-items:center;gap:40px}}
+
+/* dolny pasek telefonu */
+.mob{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(251,250,246,.97);border-top:1px solid var(--linia);transform:translateY(110%);transition:transform .3s}
+.mob.widac{transform:none}
+.mob a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:var(--r);text-decoration:none;font-weight:700;font-size:15.5px}
+.mob-tel{border:1px solid var(--zielen);color:var(--zielen-d);flex:0 0 40%!important}
+.mob-tel svg{width:18px;height:18px;fill:var(--zielen)}
+.mob-cta{background:var(--zielen);color:#fff}
+@media (min-width:1025px){.mob{display:none}}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.nw{white-space:nowrap}
+@media (max-width:559px){.kafel img{aspect-ratio:16/9}}
